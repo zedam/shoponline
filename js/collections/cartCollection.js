@@ -6,7 +6,7 @@ define(['backbone', 'models/cartModel', 'views/cartView'],
         model: Cart,
 
         filterById: function(id){
-            for(i=0;i<this.length;i++){
+            for( i = 0 ; i < this.length; i++ ){
                 if(this.models[i].attributes.product.id == id){
                     return this.models[i];
                 }

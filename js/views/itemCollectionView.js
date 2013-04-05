@@ -7,16 +7,15 @@ define([
     'models/itemModel',
     'collections/itemCollection',
     'views/itemView',
-    'views/detailView',
-    'routers/router'],
-    function($, _bootstrap, Backbone, _, Item, ItemCollection, ItemView, DetailView, AppRouter ){
+    'views/detailView'],
+    function($, _bootstrap, Backbone, _, Item, ItemCollection, ItemView, DetailView ){
 
     var ItemCollectionView = Backbone.View.extend({
         el: '#todo-list',
         ObjModal: $('#ItemModal'),
 
-        initialize: function(collection) {
-            this.collection = collection;
+        initialize: function() {
+            this.collection = collectionTodo;
             this.render();
         },
 
@@ -56,7 +55,9 @@ define([
         detailView: function(ev){
             ev.preventDefault();
             var slug = $(ev.target).data('item');
-            new DetailView(collectionTodo, slug);
+            var collection = collectionTodo.filterBySlug( slug );
+
+            var detailView = new DetailView( collection );
         },
 
         openDescription: function(ev){

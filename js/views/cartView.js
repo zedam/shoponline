@@ -75,7 +75,6 @@ define(
                     qty ++;
 
                     collectionCartById.set('quantity', qty);
-                    console.log(this.collection);
                 }else{
                     /**** I create a new item in the collection if this one is empty ****/
                     this.collection.add({ quantity: '1', product: collectionItemById  });
@@ -101,7 +100,7 @@ define(
             stockInCart = collectionById.get('quantity');
             stockInCollection = collectionTodo.filterById(id).get('stock');
 
-            finalStock = stockInCart + stockInCollection;
+            finalStock = parseInt(stockInCart) + parseInt(stockInCollection);
 
             /**** I set the final Stock. ****/
             var setProductStock = collectionTodo.filterById(id).set({ stock: finalStock });
@@ -116,7 +115,7 @@ define(
             $(ev.target).parents('ul').slideUp('slow', function(){
                 Render.render();
             });
-                collection.remove(collectionById);
+            collection.remove(collectionById);
         },
 
         updateCart: function( counter, counterAmount ){
@@ -148,7 +147,6 @@ define(
         updateScene: function(id, stock){
             $('li').data('item', id).find('#stock').html(stock);
         }
-
     });
 
     return CartView;

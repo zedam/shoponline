@@ -18,16 +18,14 @@ define(
             "click #back": "backToList"
         },
 
-        initialize: function( collection, slug ) {
+        initialize: function( collection ) {
 
             this.collection = collection;
-            _.bindAll(this, 'backToList');
-                this.collection.filterBySlug( slug );
             this.render();
         },
 
         render: function() {
-            var compiledTemplate = _.template( Template, this.collection.models[0].toJSON() );
+            var compiledTemplate = _.template( Template, this.collection[0].toJSON() );
             container = this.$el;
             this.$el.html( compiledTemplate );
             this.$el.find('li').fadeIn('slow', function(){

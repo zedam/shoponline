@@ -9,18 +9,19 @@ define(['backbone', 'views/mainView', 'collections/itemCollection', 'views/itemC
         },
 
         initialize: function(){
-            this.collection = (collectionTodo != null) ? collectionTodo : new ItemCollection();
+            this.collection =  new ItemCollection();
             collectionTodo = this.collection;
             var mainView = new MainView( this.collection );
 
         },
 
         index: function(){
-            var itemCollectionView = new ItemCollectionView(this.collection);
+            var itemCollectionView = new ItemCollectionView();
         },
 
         detail: function( slug ){
-            var detailView = new DetailView( this.collection, slug );
+            var collection = this.collection.filterBySlug( slug );
+            var detailView = new DetailView( collection );
         }
     });
     return AppRouter;

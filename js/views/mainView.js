@@ -4,15 +4,14 @@ define(
     'backbone',
     'underscore',
     'views/itemCollectionView',
-    'collections/itemCollection',
-    'routers/router']
-    , function( $, Backbone, _, ItemCollectionView, ItemCollection, AppRouter ){
+    'collections/itemCollection']
+    , function( $, Backbone, _, ItemCollectionView, ItemCollection ){
 
     var MainView = Backbone.View.extend({
         el: "body",
         filterInput: $('#filterInput'),
-        initialize: function(collection){
-            this.collection = collection;
+        initialize: function(){
+            this.collection = collectionTodo;
         },
 
         events: {

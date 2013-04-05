@@ -17,7 +17,7 @@ define(["backbone", "models/itemModel"],
         url: 'json/items.json',
 
         initialize: function(){
-            this.fetch({async: false});
+            this.fetch( { async: false } );
         },
 
         parse: function(response, xhr) {
@@ -25,10 +25,9 @@ define(["backbone", "models/itemModel"],
         },
 
         filterBySlug: function( sl ) {
-            filtered = this.filter(function(data) {
+            return filtered = this.filter(function(data) {
                 return data.get('slug') == sl;
             });
-            return new ItemCollection(filtered);
         },
 
         filterByName: function( name ){
