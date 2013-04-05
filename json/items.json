@@ -1,0 +1,64 @@
+{
+    "items":
+    [
+        {
+            "id": "1",
+            "name": "Enjoy Capitalism",
+            "description": "IMAGE TEE - ROUND NECK - TRIM CUT SLEEVES & HEM - STITCHED SHOULDER LOGO",
+            "slug": "enjoy-capitalism",
+            "img": "enjoy",
+            "price": "39.95",
+            "code": "131T003-2",
+            "category": "tshirt",
+            "stock": "10"
+        },
+
+        {
+            "id": "2",
+            "name": "Still Not wiped Out",
+            "description": "OVERSISED IMAGE TEE - ROUND NECK - DOUBLES STITCHED NECK & SLEEVES - STITCHED SHOULDER LOGO",
+            "slug": "still-not-wiped-out",
+            "img": "still",
+            "price": "59.95",
+            "code": "p-002",
+            "category": "tshirt",
+            "stock": "10"
+        },
+
+        {
+            "id": "3",
+            "name": "Marilyn Faith",
+            "description": "ATTITUDE TEE - ROUND NECK - DOUBLE STITCHED HEM AND SLEEVES - STITCHED SHOULDER LOGO",
+            "slug": "marilyn-faith",
+            "img": "marilyn",
+            "price": "29.95",
+            "code": "131T001-1",
+            "category": "tshirt",
+            "stock": "10"
+        },
+
+        {
+            "id": "4",
+            "name": "Skull Pocket",
+            "description": "IMAGE TEE - ROUND NECK - ASYMETRIC STITCHING & PATCH POCKET ON THE FRONT - TRIM CUT NECK - STITCHED SHOULDER LOGO",
+            "slug": "skull-pocket",
+            "img": "skull",
+            "price": "39.95",
+            "code": "131T055",
+            "category": "tshirt",
+            "stock": "10"
+        },
+
+        {
+            "id": "5",
+            "name": "Kiss the world",
+            "description": "IMAGE TEE - V NECK - TRIM CUT SLEEVES & HEM - STITCHED SHOULDER LOGO - COLD DYE FINISH",
+            "slug": "kiss-the-world",
+            "img": "kiss",
+            "price": "25.95",
+            "code": "131T004-4",
+            "category": "tshirt",
+            "stock": "10"
+        }
+    ]
+}

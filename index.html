@@ -1,0 +1,106 @@
+<!doctype html>
+
+
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Webshop</title>
+
+    <meta name="description" content="description of the app" />
+    <meta name="author" content="Ismael ZigelBaum">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- CSS Styles -->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/libs/bootstrap-responsive.min.css">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <script type="text/javascript" src="js/lib/modernizr-2.6.2.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="navbar navbar-fixed-top">
+
+    <!-- Principal Menu -->
+    <div class="navbar-inner">
+        <nav class="container">
+            <a href="/" id="logo">
+
+                <h1>Shop Online!</h1>
+                <p>best place where to buy!</p>
+            </a>
+            <div id="cart-container" >
+                My Cart - <span id="cart-items">0</span> items - <span id="cart-amount">0</span> €
+                <div id="cart-info"></div>
+            </div>
+        </nav>
+    </div>
+
+</header>
+
+<section class="container">
+    <div class="row-fluid">
+        <section id="main">
+            <div class="span12">
+                <!--<input type="input" id="filter" placeholder="Insert your search" class="input-large"/>-->
+                <div class='input-append'>
+                    <input type="text" id="filterInput" placeholder="Search..." />
+                    <button class='btn add-on'>
+                        <i class="icon-search"></i>
+                    </button>
+                </div>
+                <a href="#" id="clear">clear filter</a>
+            </div>
+
+            <ul id="todo-list" class="row-fluid "></ul>
+        </section>
+    </div>
+    <section>
+        <div class="opener help">
+            <a class="door" href="#" title="Explanation of what you can do in this app">
+                <span></span> Features. Possibilities of this App.
+            </a>
+            <ul>
+                <li>You can search by name to find the tshirt you are looking for.</li>
+                <li>You can see a description of that tshirt.</li>
+                <li>You can add a tshirt to your ShoppingCart</li>
+            </ul>
+        </div>
+    </section>
+</section>
+
+<footer class="container-fluid">
+    <ul class="container">
+        <li><a href="#" >Contact</a></li>
+        <li><a href="#" >About us</a></li>
+        <li><a href="#" >FAQ</a></li>
+        <li><a href="#" >Help</a></li>
+        <li class="copyright">CalculateDistance 2013 &copy;</li>
+    </ul>
+</footer>
+
+
+<div id="ItemModal" class="modal hide fade in">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3 class="title">This is a Modal Heading</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
+
+<script src="js/lib/require.js" data-main="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+@import "elements.less";
+
+
+body{
+  background: @background;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+#clear{
+  padding-left: 10px;
+}
+
+.modal{
+  display: none;
+}
+#todo-list{
+  list-style: none;
+  float: left;
+  margin: 0;
+  clear: both;
+  width: 100%;
+
+  input.edit {
+    display: none; /* Hides input box*/
+  }
+
+  .editing input.edit {
+    display: inline; /* Shows input text box when .editing*/
+  }
+
+  .editing label {
+    display: none; /* Hides label text when .editing*/
+  }
+
+  > li{
+    display: none;
+    padding: 10px;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    .rounded(3px);
+
+    z-index: 1;
+    &:hover{
+      z-index: 3;
+    }
+    &.view{
+      .model{
+        display: none;
+      }
+      &:hover {
+        .model{
+          display: block;
+          .box-shadow(@box-shadow-inset);
+        }
+        .product{
+          display: none;
+        }
+        .product_info{
+          display: block;
+        }
+      }
+
+      .product_info{
+        background: none repeat scroll 0 0 #F8F9E6;
+        bottom: -50px;
+        .box-shadow(@box-shadow);
+        display: none;
+        padding: 3px 10px;
+        position: absolute;
+        right: -10px;
+        h2{
+          margin: 0;
+          padding: 0;
+        }
+        span{
+          float: right;
+          clear: both;
+        }
+        div, .more{
+          width: 100%;
+          text-align: right;
+          float: left;
+          height: 15px;
+        }
+        .more{
+          padding-top: 5px;
+          font-size: 12px;
+        }
+        .btn{
+          clear: both;
+          float: right;
+          margin: 10px 0;
+        }
+      }
+    }
+
+    > a{
+      float: left;
+      width: 100%;
+      text-align: center;
+      color: @brand-color;
+      outline: none;
+      &.img-shadow{
+
+        &:hover {
+          position: relative;
+          max-width: 100%;
+          float: left;
+          &::before {
+            .rounded(5px);
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            width: 100%;
+            .box-shadow(@box-shadow-inset);
+          }
+        }
+        img{
+          height: 210px;
+          margin: 0 auto;
+//          min-width: 232px;
+//          float: left;
+          .rounded(5px);
+        }
+      }
+
+    }
+
+    h2{
+      font-size: 14px;
+      margin: 0px;
+      padding-top: 10px;
+      height: 20px;
+      line-height: 20px;
+    }
+
+    &#detail_view{
+      float: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      #stock{
+        font-weight: bold;
+      }
+
+      div{
+        &.info{
+          display: none;
+          div{
+            float: left;
+            clear: both;
+            &.price{
+              clear: both;
+              float: right;
+              font-size: 24px;
+              font-weight: bold;
+              padding-bottom: 20px;
+            }
+          }
+          h2{
+            font-size: 21px;
+            height: 20px;
+            line-height: 20px;
+            margin: 0;
+            padding-bottom: 20px;
+          }
+          #container_info{
+            padding: 5%;
+            background: #f9f9f9;
+            .rounded;
+            .box-shadow(@box-shadow);
+            .code{
+              padding-top: 20px;
+            }
+          }
+        }
+      }
+      .btn{
+        float: right;
+        clear: both;
+      }
+      .model{
+        height: 150px;
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
+.door{
+  padding-top: 40px;
+  float: left;
+}
+
+.opener ul{
+  float: left;
+  width: 100%;
+  display: none;
+}
+
+.breadcrumb {
+  .box-shadow(@box-shadow);
+}
+
+form {
+  margin: 0;
+}
+
+nav.container ul {
+  list-style: none;
+  float: left;
+  height: 40px;
+  padding-bottom: 20px;
+}
+
+nav.container ul li {
+  float: left;
+  padding: 0 10px;
+  line-height: 80px;
+}
+
+#logo {
+  float: left;
+//  padding-top: 15px;
+  h1{
+    margin-bottom: 0;
+  }
+}
+
+body>section.container {
+  padding-bottom: 70px;
+  padding-top: 110px;
+}
+
+.ie7 body>section.container,
+.ie8 body>section.container  {
+  padding-top: 70px;
+}
+
+footer{
+  &.container-fluid {
+    border-top: @border;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    list-style: none;
+    li {
+      float: left;
+      padding: 10px;
+    }
+  }
+  z-index: 12;
+}
+
+.copyright {
+  float: right;
+  text-shadow: @text-shadow;
+  color: @color;
+}
+
+.btn.reset{
+  font-size: 12px;
+  float: right;
+}
+
+.input-append button.add-on {
+  height: inherit !important;
+}
+
+nav.container{
+  position: relative;
+}
+
+#cart-container{
+  float: right;
+  padding-top: 50px;
+  position: relative;
+  cursor: pointer;
+  .rounded();
+  background:  #FFFFFF;
+  box-shadow: @box-shadow;
+  cursor: pointer;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 39px;
+  &:hover{
+    color: #666;
+  }
+
+  #cart-info.active{
+    display: block;
+  }
+
+  #cart-info {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: @border;
+    display: none;
+    right: 0;
+    padding: 5px;
+    position: absolute;
+    top: 41px;
+    min-width: 260px;
+    z-index: 4;
+    .rounded(0px 0px 5px 5px);
+    box-shadow: @box-shadow;
+    ul{
+      list-style: none;
+      margin: 0px;
+      height: auto;
+      padding-bottom: 0;
+      width: 100%;
+      border-top: @dashed;
+      &.resume{
+        font-weight: bold;
+        .title{
+          min-width: 160px;
+        }
+      }
+      li{
+        line-height: 20px;
+        padding: 5px;
+        float: left;
+        clear: none;
+        &.title{
+          min-width: 138px;
+        }
+      }
+    }
+  }
+
+  #cart-items, #cart-amount{
+    font-weight: bold;
+  }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+  input {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  section.searcher input{
+    margin-bottom: 10px;
+  }
+  footer.container-fluid {
+    margin-bottom: 10px;
+    border: @border;
+    position: relative;
+    .rounded;
+  }
+}
+
+@media (max-width: 979px) {
+  body>section.container {
+    padding-top: 0px;
+  }
+}
+
+
+@media (max-width: 438px) {
+  #todo-list{
+    li{
+      &.view{
+        width: 100%;
+         .product_info {
+            right: 25%;
+        }
+      }
+    }
+  }
+}
+

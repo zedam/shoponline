@@ -1,0 +1,10 @@
+<ul>
+    <li><%= quantity %></li>
+    <li title="<%= product.attributes.description %>" class="title">
+        <%= product.attributes.name %>
+    </li>
+    <li><%= product.attributes.price %> €</li>
+    <li>
+        <button data-item="<%= product.attributes.id %>">X</button>
+    </li>
+</ul>

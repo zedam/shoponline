@@ -1,0 +1,16 @@
+<li id="detail_view" class="row-fluid" data-item="<%- id %>">
+    <div class="span6">
+        <a href="#" id="back">Back to List</a>
+        <img src="assets/images/<%- img %>.jpg" class="product" />
+    </div>
+    <div class="info span6">
+        <div id="container_info">
+            <h2><%- name %></h2>
+            <div class="title"><%- description %> </div>
+            <div class="code">code: <strong><%- code %></strong> - <strong><%- category %></strong></div>
+            <div>stock: <span id="stock"><%- stock %></span></div>
+            <div class="price"><%- price %> €</div>
+            <button data-item="<%- id %>" class="btn addToCart">Add to Cart</button>
+        </div>
+    </div>
+</li>
