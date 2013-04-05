@@ -20,14 +20,11 @@ define(
 
         initialize: function( collection, slug ) {
 
-            _.bindAll(this, 'backToList');
-
             this.collection = collection;
-            this.collection = collection.filterBySlug( slug );
-
+            _.bindAll(this, 'backToList');
+                this.collection.filterBySlug( slug );
             this.render();
         },
-
 
         render: function() {
             var compiledTemplate = _.template( Template, this.collection.models[0].toJSON() );
