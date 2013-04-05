@@ -18,11 +18,6 @@ define([
         initialize: function(collection) {
             this.collection = collection;
             this.render();
-
-            $(window).bind("resize.app", _.bind(this.resize, this));
-            //this.collection.on( "change", this.render, this );
-
-            //this.listenTo( this.collection, 'change', this.render );
         },
 
         events: {
@@ -44,11 +39,6 @@ define([
         renderItem: function( item ) {
             var itemView = new ItemView( { model: item } );
             this.$el.append( itemView.render().el );
-        },
-
-        resize: function(){
-            console.log($(window).width());
-
         },
 
         showProducts: function( value ){
@@ -75,8 +65,6 @@ define([
             this.ObjModal.find('.modal-body').html($(ev.target).data('content'));
             this.ObjModal.modal();
         }
-
     });
     return ItemCollectionView;
-
 });

@@ -13,7 +13,6 @@ define(['backbone', 'text!/templates/cart_item.html'],
                 var compiledTemplate = _.template( Template, this.model.toJSON() );
 
                 this.$el.append(compiledTemplate);
-                //return this;
             }
         });
         return CartItemView;

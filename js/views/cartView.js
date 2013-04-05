@@ -24,8 +24,6 @@ define(
         initialize: function(){
             this.collection = new CartCollection();
             this.collection.on( "change", this.render, this );
-
-            //this.render();
         },
 
         render: function() {
