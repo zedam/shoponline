@@ -2,13 +2,14 @@ define(
     ['jquery',
     'backbone',
     'underscore',
+    'localStorage',
     'models/cartModel',
     'models/itemModel',
     'collections/cartCollection',
     'collections/itemCollection',
     'views/cartItemView',
     'text!/templates/cart_total.html'],
-    function($, Backbone, _, Cart, Item, CartCollection, ItemCollection, CartItemView, Template ){
+    function($, Backbone, _, LocalStorage, Cart, Item, CartCollection, ItemCollection, CartItemView, Template ){
 
     var CartView = Backbone.View.extend({
 
@@ -23,7 +24,6 @@ define(
 
         initialize: function(){
             this.collection = new CartCollection();
-            this.collection.on( "change", this.render, this );
         },
 
         render: function() {
@@ -33,8 +33,8 @@ define(
             if(this.collection.length > 0 ){
                 this.collection.each(function(item, index) {
 
-                    var quantity = this.round2decimals(item.attributes.quantity);
-                    var price = this.round2decimals(item.attributes.product.attributes.price);
+                    var quantity = this.round2decimals(item.get('quantity'));
+                    var price = this.round2decimals(item.get('product').get('price'));
 
                     counter += quantity;
                     counterAmount += quantity * price;
@@ -81,12 +81,11 @@ define(
                 }
 
                 this.render();
-
-                this.updateStock(id);
+                this.updateStock( id );
 
             } else {
                 /**** if there is no stock  / we could put some notifications and do it nicer... ****/
-                alert('not enought stock');
+                this.showAlert( id );
             }
         },
 
@@ -115,6 +114,10 @@ define(
             $(ev.target).parents('ul').slideUp('slow', function(){
                 Render.render();
             });
+
+            /**** Hides the alert of : "out of stock" ****/
+            this.hideAlert(id);
+
             collection.remove(collectionById);
         },
 
@@ -145,7 +148,21 @@ define(
         },
 
         updateScene: function(id, stock){
-            $('li').data('item', id).find('#stock').html(stock);
+            //$('li').data('id='+id).find('#stock').html(stock);
+        },
+
+        showAlert: function( id ){
+            this.selector( id ).find('.alert').fadeIn('slow');
+            this.selector( id ).find('.addToCart').fadeOut('slow');
+        },
+
+        hideAlert: function( id ){
+            this.selector( id ).find('.alert').hide();
+            this.selector( id ).find('.addToCart').show();
+        },
+
+        selector: function( id ){
+            return $('*[data-id="'+id+'"]').parent();
         }
     });
 

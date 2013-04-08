@@ -1,10 +1,13 @@
-    <a href="#detail/<%- slug %>" class="img-shadow" data-item="<%- slug %>">
+    <a href="#detail/<%- slug %>" class="img-shadow" data-item="<%- slug %>" data-id="<%- id %>">
         <img src="assets/images/<%- img %>_thumb.jpg" class="product" />
         <img src="assets/images/<%- img %>_model.jpg" class="model"/>
     </a>
+
+
     <span class="product_info">
         <h2><%- name %></h2>
         <div><%- price %> €</div>
         <a href="#" class="more" data-item="<%- name %>"  data-content="<%- description %>" > more info </a>
         <button data-item="<%- id %>" class="btn addToCart">Add to Cart</button>
+        <span class="alert">out of stock</span>
     </span>

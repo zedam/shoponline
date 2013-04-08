@@ -2,7 +2,7 @@ var collectionTodo, AppRouter;
 define(['backbone', 'views/mainView', 'collections/itemCollection', 'views/itemCollectionView', 'views/detailView'],
     function( Backbone, MainView, ItemCollection, ItemCollectionView, DetailView ){
 
-    AppRouter = Backbone.Router.extend({
+        var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'index',
             'detail/:slug': 'detail'
@@ -12,7 +12,6 @@ define(['backbone', 'views/mainView', 'collections/itemCollection', 'views/itemC
             this.collection =  new ItemCollection();
             collectionTodo = this.collection;
             var mainView = new MainView( this.collection );
-
         },
 
         index: function(){

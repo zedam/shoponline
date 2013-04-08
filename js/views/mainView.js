@@ -44,8 +44,9 @@ define(
         },
 
         openCart: function(){
-            $('#cart-info').slideToggle('fast').toggleClass('active');
+            $('#cart-info').slideToggle('slow').toggleClass('active');
         }
     });
     return MainView;
+
 });

@@ -19,7 +19,6 @@ define(
         },
 
         initialize: function( collection ) {
-
             this.collection = collection;
             this.render();
         },
@@ -34,7 +33,8 @@ define(
         },
 
         backToList: function(ev){
-            ev.preventDefault();
+            //ev.preventDefault();
+
             $('#clear').trigger('click');
         }
     });

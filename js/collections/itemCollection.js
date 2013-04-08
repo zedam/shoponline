@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-define(["backbone", "models/itemModel"],
+define(['backbone', 'models/itemModel'],
     function(Backbone, Item) {
 
     var ItemCollection = Backbone.Collection.extend({

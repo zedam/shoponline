@@ -4,7 +4,8 @@ require.config({
         'underscore': 'lib/underscore-min',
         'backbone': 'lib/backbone-min',
         'text': 'lib/text',
-        'bootstrap': 'lib/bootstrap.min'
+        'bootstrap': 'lib/bootstrap.min',
+        "localStorage": 'lib/backbone.localStorage-min'
     },
     shim: {
         'underscore': {
@@ -32,7 +33,8 @@ require(
         $(function() {
             var appRouter = new AppRouter();
             var cart = new Cart();
-            Backbone.history.start();
+            Backbone.history.start( { pushState: true } );
         });
     }
 );
+

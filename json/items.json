@@ -10,7 +10,7 @@
             "price": "39.95",
             "code": "131T003-2",
             "category": "tshirt",
-            "stock": "10"
+            "stock": "5"
         },
 
         {
@@ -22,7 +22,7 @@
             "price": "59.95",
             "code": "p-002",
             "category": "tshirt",
-            "stock": "10"
+            "stock": "5"
         },
 
         {
@@ -34,7 +34,7 @@
             "price": "29.95",
             "code": "131T001-1",
             "category": "tshirt",
-            "stock": "10"
+            "stock": "5"
         },
 
         {
@@ -46,7 +46,7 @@
             "price": "39.95",
             "code": "131T055",
             "category": "tshirt",
-            "stock": "10"
+            "stock": "5"
         },
 
         {
@@ -58,7 +58,7 @@
             "price": "25.95",
             "code": "131T004-4",
             "category": "tshirt",
-            "stock": "10"
+            "stock": "5"
         }
     ]
 }

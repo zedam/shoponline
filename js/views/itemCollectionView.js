@@ -53,7 +53,7 @@ define([
         },
 
         detailView: function(ev){
-            ev.preventDefault();
+            selfa = this.$el;
             var slug = $(ev.target).data('item');
             var collection = collectionTodo.filterBySlug( slug );
 

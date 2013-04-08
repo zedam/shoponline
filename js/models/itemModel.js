@@ -8,7 +8,7 @@
 
 define(["backbone"], function( Backbone ){
 
-    var Item = Backbone.Model.extend({
+    Item = Backbone.Model.extend({
         defaults: {
             "id": "",
             "name": "",
