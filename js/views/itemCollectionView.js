@@ -1,22 +1,25 @@
 
-define([
-    'jquery',
-    'bootstrap',
-    'backbone',
-    'underscore',
-    'models/itemModel',
-    'collections/itemCollection',
-    'views/itemView',
-    'views/detailView'],
-    function($, _bootstrap, Backbone, _, Item, ItemCollection, ItemView, DetailView ){
+define(
+    /*
+        ['models/itemModel',
+        'collections/itemCollection',
+        'views/itemView',
+        'views/detailView'],
+    */
+function(require, exports, module){
+    /* Item, ItemCollection, ItemView, DetailView */
+
+    var Backbone = require("backbone"),
+        ItemView = require("views/itemView"),
+        DetailView = require("views/detailView");
 
     var ItemCollectionView = Backbone.View.extend({
         el: '#todo-list',
         ObjModal: $('#ItemModal'),
 
         initialize: function() {
-            this.collection = collectionTodo;
             this.render();
+            this.listenTo(this.collection, 'change', this.render);
         },
 
         events: {
@@ -27,27 +30,32 @@ define([
         render: function() {
             this.$el.empty();
 
-            this.collection.each( function( item, index ) {
+            this.collection.each( function (item, index) {
                 this.renderItem( item );
-                if( index == this.collection.length -1 ){
+
+                if (index == this.collection.length - 1){
                     this.showProducts(0);
                 }
+
             }, this);
         },
 
         renderItem: function( item ) {
-            var itemView = new ItemView( { model: item } );
+            var itemView = new ItemView({
+                model: item
+            });
+
             this.$el.append( itemView.render().el );
         },
 
         showProducts: function( value ){
-            selector = this;
-            liProducts = selector.$el.find('li');
-            len = liProducts.length;
+            $this = this;
+            var productItem = this.$el.find('li');
+            len = productItem.length;
 
-            selector.$el.find('li:eq(' + value + ')').fadeIn('fast', function(){
+            this.$el.find('li:eq(' + value + ')').fadeIn('fast', function(){
                 if( len > value + 1 ){
-                    selector.showProducts( value + 1 );
+                    $this.showProducts( value + 1 );
                 }
             });
         },
@@ -55,7 +63,7 @@ define([
         detailView: function(ev){
             selfa = this.$el;
             var slug = $(ev.target).data('item');
-            var collection = collectionTodo.filterBySlug( slug );
+            var collection = this.collection.filterBySlug( slug );
 
             var detailView = new DetailView( collection );
         },
@@ -67,5 +75,6 @@ define([
             this.ObjModal.modal();
         }
     });
-    return ItemCollectionView;
+
+    module.exports = ItemCollectionView;
 });

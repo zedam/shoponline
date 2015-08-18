@@ -1,27 +1,26 @@
 var collectionTodo, AppRouter;
-define(['backbone', 'views/mainView', 'collections/itemCollection', 'views/itemCollectionView', 'views/detailView'],
-    function( Backbone, MainView, ItemCollection, ItemCollectionView, DetailView ){
 
-        var AppRouter = Backbone.Router.extend({
-        routes: {
-            '': 'index',
-            'detail/:slug': 'detail'
-        },
+define(['views/mainView', 'collections/itemCollection', 'views/itemCollectionView', 'views/detailView'],
+    function( MainView, ItemCollection, ItemCollectionView, DetailView ){
 
-        initialize: function(){
-            this.collection =  new ItemCollection();
-            collectionTodo = this.collection;
-            var mainView = new MainView( this.collection );
-        },
+        AppRouter = Backbone.Router.extend({
+            routes: {
+                '': 'index',
+                'detail/:slug': 'detail'
+            },
 
-        index: function(){
-            var itemCollectionView = new ItemCollectionView();
-        },
 
-        detail: function( slug ){
-            var collection = this.collection.filterBySlug( slug );
-            var detailView = new DetailView( collection );
-        }
+
+            index: function(){this.collection =  new ItemCollection();
+                collectionTodo = this.collection;
+                var itemCollectionView = new ItemCollectionView();
+                var mainView = new MainView( this.collection );
+            },
+
+            detail: function( slug ){
+                var collection = this.collection.filterBySlug( slug );
+                var detailView = new DetailView( collection );
+            }
+        });
+        return AppRouter;
     });
-    return AppRouter;
-});

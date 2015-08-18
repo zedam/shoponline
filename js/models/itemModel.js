@@ -1,12 +1,5 @@
-/**
- * Created with JetBrains WebStorm.
- * User: izigelbaum
- * Date: 28/03/13
- * Time: 16:15
- * To change this template use File | Settings | File Templates.
- */
-
-define(["backbone"], function( Backbone ){
+define(function (require, exports, module) {
+    var Backbone = require("backbone");
 
     Item = Backbone.Model.extend({
         defaults: {
@@ -18,7 +11,9 @@ define(["backbone"], function( Backbone ){
             "price": "",
             "code": "",
             "category": ""
-        }
+        },
+        url: 'json/item.json'
     });
-    return Item;
+
+    module.exports = Item;
 });

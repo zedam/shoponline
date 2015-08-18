@@ -1,40 +1,36 @@
-require.config({
-    paths: {
-        'jquery': 'lib/jquery-1.9.0.min',
-        'underscore': 'lib/underscore-min',
-        'backbone': 'lib/backbone-min',
-        'text': 'lib/text',
-        'bootstrap': 'lib/bootstrap.min',
-        "localStorage": 'lib/backbone.localStorage-min'
-    },
-    shim: {
-        'underscore': {
-            exports: '_'
-        },
-        'backbone': {
-            deps: ['lib/underscore', 'jquery'],
-            exports: 'Backbone'
-        },
-        'text': {
-            exports: 'text'
-        },
-        'bootstrap':{
-            deps: ['jquery']
-        }
-    }
+// Kick off the application.
+require(["app", "router"], function(app, Router){
+  // Define your master router on the application namespace and trigger all
+  // navigation from this instance.
+  app.router = new Router();
+
+  // Trigger the initial route and enable HTML5 History API support, set the
+  // root folder to '/' by default.  Change in app.js.
+  Backbone.history.start({ pushState: false, root: app.root });
+
+  /*$(function() {
+    // Update address bar URL
+    $('a').on('click', function(e) {
+      e.preventDefault();
+      console.log(e.target.getAttribute('href'));
+      app.router.navigate(e.target.getAttribute('href'), true);
+    });
+
+  });*/
 });
+
+
+
+/*
+
 require(
-    ['jquery',
-    'underscore',
-    'backbone',
-    'views/cartView',
+    ['views/cartView',
     'routers/router'],
-    function( $, _, Backbone, Cart, AppRouter ) {
-        $(function() {
+    function( Cart, AppRouter ) {
             var appRouter = new AppRouter();
-            var cart = new Cart();
             Backbone.history.start( { pushState: true } );
-        });
+
     }
 );
+*/
 

@@ -1,5 +1,8 @@
-define(['backbone', 'text!/templates/item_template.html'],
-    function(Backbone, projectListTemplate) {
+
+define(function (require, exports, module){
+
+    var Backbone = require("backbone"),
+        projectListTemplate = require("text!/templates/item_template.html");
 
     var ItemView = Backbone.View.extend({
         tagName: "li",
@@ -12,5 +15,7 @@ define(['backbone', 'text!/templates/item_template.html'],
             return this;
         }
     });
-    return ItemView;
+
+    module.exports = ItemView;
+
 });

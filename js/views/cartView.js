@@ -1,4 +1,6 @@
-define(
+define(function (require, exports, module) {
+
+/*
     ['jquery',
     'backbone',
     'underscore',
@@ -9,7 +11,10 @@ define(
     'collections/itemCollection',
     'views/cartItemView',
     'text!/templates/cart_total.html'],
-    function($, Backbone, _, LocalStorage, Cart, Item, CartCollection, ItemCollection, CartItemView, Template ){
+    function($, Backbone, _, LocalStorage, Cart, Item, CartCollection, ItemCollection, CartItemView, Template ){*/
+
+    var Backbone = require('backbone');
+    var CartItemView = require('views/cartItemView');
 
     var CartView = Backbone.View.extend({
 
@@ -23,7 +28,7 @@ define(
         },
 
         initialize: function(){
-            this.collection = new CartCollection();
+            //this.collection = new CartCollection();
         },
 
         render: function() {
@@ -46,7 +51,9 @@ define(
         },
 
         renderItem: function( item ) {
-            var cartItemView = new CartItemView( { model: item } );
+            var cartItemView = new CartItemView({
+                model: item
+            });
         },
 
         round2decimals: function(value){
@@ -166,5 +173,5 @@ define(
         }
     });
 
-    return CartView;
+    module.exports = CartView;
 });

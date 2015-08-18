@@ -1,0 +1,16 @@
+{
+    "item":
+    [
+        {
+            "id": "1",
+            "name": "Enjoy Capitalism",
+            "description": "IMAGE TEE - ROUND NECK - TRIM CUT SLEEVES & HEM - STITCHED SHOULDER LOGO",
+            "slug": "enjoy-capitalism",
+            "img": "enjoy",
+            "price": "39.95",
+            "code": "131T003-2",
+            "category": "tshirt",
+            "stock": "5"
+        }
+    ]
+}

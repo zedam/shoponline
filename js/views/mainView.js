@@ -1,20 +1,24 @@
+define(function(require, exports, module){
 
-define(
-    ['jquery',
-    'backbone',
-    'underscore',
-    'views/itemCollectionView',
-    'collections/itemCollection']
-    , function( $, Backbone, _, ItemCollectionView, ItemCollection ){
+    var Backbone = require("backbone"),
+        ItemCollectionView = require("views/itemCollectionView"),
+        CartCollection = require('collections/cartCollection'),
+        CartView = require('views/CartView');
 
     var MainView = Backbone.View.extend({
         el: "body",
         filterInput: $('#filterInput'),
-        initialize: function(){
-            this.collection = collectionTodo;
+
+        initialize: function (){
+            var cartCollection = new CartCollection();
+            var cartView = new CartView({
+                collection: cartCollection
+            });
+            //console.log(this.collection);
         },
 
         events: {
+            "change #filterInput": "filterItems",
             "click .add-on": "filterItems",
             "click #clear": "clearFilter",
             "click .door": "openHelp",
@@ -22,20 +26,21 @@ define(
         },
 
         filterItems: function(e) {
-            var name = this.filterInput.val();
+            var name = this.filterInput.val(),
+                filtered = this.collection.filterByName( name );
 
-            if( name.length > 0 ){
-                var filtered = this.collection.filterByName( name );
-                new ItemCollectionView( filtered );
-            }else{
-                new ItemCollectionView( this.collection );
-            }
+            new ItemCollectionView({
+                collection: filtered
+            });
         },
 
         clearFilter: function(e) {
             e.preventDefault();
             this.filterInput.val('');
-            new ItemCollectionView( this.collection );
+
+            new ItemCollectionView({
+                collection:  this.collection
+            });
         },
 
         openHelp: function(e){
@@ -47,6 +52,7 @@ define(
             $('#cart-info').slideToggle('slow').toggleClass('active');
         }
     });
-    return MainView;
 
+    module.exports = MainView;
 });
+

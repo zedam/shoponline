@@ -1,5 +1,5 @@
 define(['backbone', 'localStorage', 'models/cartModel', 'views/cartView'],
-    function(Backbone, localstorage, Cart, CartView){
+    function(Backbone, localStorage, Cart, CartView){
 
     var CartCollection = Backbone.Collection.extend({
         div: "#cart-info",

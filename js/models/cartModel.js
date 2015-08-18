@@ -1,8 +1,13 @@
-define(['backbone', 'localStorage', 'models/itemModel'], function(Backbone, LocalStorage, Item){
+define( function (require, exports, module){
+
+    var Backbone = require("backbone");
+    var LocalStorage = require("localstorage");
+    var ItemModel = require("models/itemModel");
+
 
     var Cart = Backbone.Model.extend({
         defaults:{
-            product: new Item(),
+            product: new ItemModel(),
             quantity: ''
         },
 
@@ -10,10 +15,10 @@ define(['backbone', 'localStorage', 'models/itemModel'], function(Backbone, Loca
         // localStorage: new Backbone.LocalStorage("Cart"),
 
         initialize: function(){
-          //  this.fetch();
-          //  console.log(this.localStorage.findAll());
+            //  this.fetch();
+            //  console.log(this.localStorage.findAll());
         }
     });
 
-    return Cart;
+    module.exports = Cart;
 });
